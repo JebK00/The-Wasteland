@@ -1,4 +1,4 @@
-import pyxel, random, asyncio
+import pyxel, random
 pyxel.init(128, 128, title="little-fighter")
 pyxel.load("res.pyxres")
 bonhomme_x = 60
@@ -58,14 +58,14 @@ def collision_cercle(cx1, cy1, r1, cx2, cy2, r2):
 def ennemis_suppression():
     global bonhomme_x, bonhomme_y, ennemis_liste, points_de_victoire
     
-    ennemis_enlevés = []
+    ennemis_enleves = []
     
     for ennemi in ennemis_liste:
         ennemi_x, ennemi_y = ennemi
         if collision_cercle(ennemi_x, ennemi_y, 7.5, bonhomme_x, bonhomme_y, 7.5):
-            ennemis_enlevés.append(ennemi)
+            ennemis_enleves.append(ennemi)
     
-    for ennemi in ennemis_enlevés:
+    for ennemi in ennemis_enleves:
         points_de_victoire += 1
         ennemis_liste.remove(ennemi)
 
